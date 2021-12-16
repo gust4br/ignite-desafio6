@@ -1,0 +1,16 @@
+$yellowColor: #FFBA08;
+$greyColor: #999999;
+
+div.swiper-button-prev,
+div.swiper-button-next{
+   color: $yellowColor;
+}
+
+span.swiper-pagination-bullet{
+    background-color: $greyColor;
+    opacity: 1;
+}
+
+span.swiper-pagination-bullet-active{
+    background-color: $yellowColor;
+}
