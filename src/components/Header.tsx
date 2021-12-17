@@ -1,8 +1,20 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Image, Box } from '@chakra-ui/react';
 
-export function Header(){
+interface IHeaderProps{
+    hasBackButton?: boolean;
+}
+
+export function Header({ hasBackButton = false }: IHeaderProps){
+
     return(
-        <Flex w="100%" h="5rem" align="center" justify="center"> 
+        <Flex w="100%" h="5rem" align="center" justify="center">
+            {
+                hasBackButton && (
+                    <Box position="absolute" left="5%" cursor="pointer">
+                         <Image src='/icons/backIcon.svg'/> 
+                    </Box>
+                )
+            }
             <Image src={'/logo.png'} alt="Logo World Trip"/>
         </Flex>
     )

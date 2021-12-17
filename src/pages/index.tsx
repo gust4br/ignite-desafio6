@@ -15,6 +15,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export default function Home() {
+  
   const continentsList = [
     {
       title: 'Europa',
@@ -42,7 +43,7 @@ export default function Home() {
     <Flex w="100%" justify="center" align="center" flexDir="column">
       <TravelIcons />
       <Box as="span" w="90px" borderBottom="2px solid #47585B"></Box>
-      <Heading mt="120px" fontWeight={500} color="#47585B">
+      <Heading mt="3.25rem" fontWeight={500} color="#47585B">
         Vamos nessa?
       </Heading>      
       <Heading fontWeight={500} color="#47585B">
