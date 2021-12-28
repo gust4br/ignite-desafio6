@@ -1,4 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
+import Link from 'next/link';
 
 interface IHeaderProps{
     hasBackButton?: boolean;
@@ -11,7 +12,7 @@ export function Header({ hasBackButton = false }: IHeaderProps){
             {
                 hasBackButton && (
                     <Box position="absolute" left="5%" cursor="pointer">
-                         <Image src='/icons/backIcon.svg'/> 
+                         <Link href="/"><Image src='/icons/backIcon.svg'/></Link>
                     </Box>
                 )
             }

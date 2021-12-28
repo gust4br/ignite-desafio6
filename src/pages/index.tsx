@@ -13,6 +13,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Head from 'next/head';
 
 export default function Home() {
   
@@ -38,6 +39,9 @@ export default function Home() {
 
   return (
     <>
+    <Head key="title">
+    <title>World Trip</title>
+    </Head>
     <Header />
     <Banner />
     <Flex w="100%" justify="center" align="center" flexDir="column">
@@ -59,10 +63,10 @@ export default function Home() {
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
         >
-          {continentsList.map(({title, paragraph, image}) => {
+          {continentsList.map(({title, paragraph, image,  }) => {
               return (
                 <SwiperSlide key={title}>
-                  <SliderItem title={title} paragraph={paragraph} image={image} />
+                  <SliderItem title={title} paragraph={paragraph} image={image} link={`/places/${title}`} />
                 </SwiperSlide>
               )
             })}
