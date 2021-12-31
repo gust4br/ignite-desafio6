@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { PlaceBanner } from "../../components/PlaceBanner";
 import { Header } from "../../components/Header";
-import { Flex, Text, Image } from "@chakra-ui/react";
+import { Flex, Text, Image, Box } from "@chakra-ui/react";
 import Head from "next/head";
 type IContinentData = {
     title: string,
@@ -146,13 +146,33 @@ export default function(){
                     </Flex>
                     <Flex flexDir="column" mt={16} color="#47585B" fontSize="24px" fontWeight="medium">
                         <Text as="h1">Cidades:</Text>
-                        <Flex>
+                        <Flex w="100%" h="500px" flexWrap="wrap" mt={6} justify="space-between">
                             {
                                 continentData?.cidades.map(e => {
-                                    return <Flex key={e.nome} overflow="hidden" w="250px" h="280px">
-                                                <Image src={e.image} />
-                                                <Flex background="white" position="absolute" bottom="0" w="100%" h="30%">
-                                                </Flex>
+                                    return <Flex 
+                                            key={e.nome} 
+                                            w="256px" 
+                                            h="280px" 
+                                            pos="relative"
+                                            overflow="hidden"
+                                            >
+                                                <Image src={e.image} h="100%" w="100%" borderRadius={8}/>
+                                                <Box 
+                                                background="white" 
+                                                w="100%" 
+                                                h="125px" 
+                                                zIndex="4" 
+                                                pos="absolute" 
+                                                bottom="0" 
+                                                left="0" 
+                                                borderBottomRadius={4} 
+                                                border="1px solid #FFBA0880"
+                                                borderTop="none"
+                                                padding="1rem"
+                                                >
+                                                    <Text color="#47585B" fontSize="1rem" fontWeight="600" mb="1rem">{e.nome}</Text>
+                                                    <Text color="#999999" fontSize="0.75rem" fontWeight="500">{e.pais}</Text>
+                                                </Box>
                                             </Flex>
                                 })
                             }
