@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { PlaceBanner } from "../../components/PlaceBanner";
 import { Header } from "../../components/Header";
-import { Flex, Text, Image, Box } from "@chakra-ui/react";
+import { Flex, Text, Image, Box, useBreakpointValue } from "@chakra-ui/react";
 import Head from "next/head";
 type IContinentData = {
     title: string,
@@ -114,6 +114,17 @@ export default function(){
         setContinentData(continentsList.find(e => e.title === continent));
     }, [continent])
 
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true,
+      });
+
+    const setFlexDirection = () => {
+        if(isWideVersion)
+            return 'row';
+        else
+            return 'column';
+    };
     
 
     return(
@@ -125,7 +136,7 @@ export default function(){
                 <Header hasBackButton />
                 <PlaceBanner name={continentData?.title} image={continentData?.image} />
                 <Flex w="70%" mt="3rem" flexDir="column">
-                    <Flex w="100%" align="center" justify="space-between">
+                    <Flex w="100%" align="center" justify="space-between" flexDir={setFlexDirection()}>
                         <Flex w="50%" textAlign="justify">
                         {continentData?.paragraph}
                         </Flex>
@@ -144,7 +155,7 @@ export default function(){
                             </Flex>
                         </Flex>
                     </Flex>
-                    <Flex flexDir="column" mt={16} color="#47585B" fontSize="24px" fontWeight="medium">
+                    <Flex flexDir="column" mt={16} mb={16} gap={2} color="#47585B" fontSize="24px" fontWeight="medium">
                         <Text as="h1">Cidades:</Text>
                         <Flex w="100%" h="500px" flexWrap="wrap" mt={6} justify="space-between">
                             {
